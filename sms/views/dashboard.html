@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 200px;
+      height: 100%;
+      background-color: #333;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+    .content {
+      margin-left: 200px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="dashboard.html" title="Return to dashboard">Dashboard</a>
+  <a href="grades.html" title="See your grades">View Grades</a>
+  <a href="profile.html" title="Update your profile">Update Profile</a>
+  <div class="notify-container">
+    <a href="notifications.html" class="notify-link">Notifications</a>
+    <div class="notify-hint">See recent notifications</div>
+    </div>
+</div>
+
+<div class="content">
+  <h1>Welcome to your Dashboard</h1>
+  <p>Next steps:</p>
+  <ol>
+    <li>Update your profile</li>
+    <li>Check your notifications</li>
+    <li>View your grades</li>
+  </ol>
+</div>
+
+</body>
+</html>

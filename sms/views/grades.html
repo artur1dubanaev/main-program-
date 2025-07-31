@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Grades</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    .sidebar {
+      position: fixed; top: 0; left: 0;
+      width: 200px; height: 100%;
+      background-color: #333; padding-top: 20px;
+    }
+    .sidebar a {
+      display: block; color: white;
+      padding: 12px; text-decoration: none;
+    }
+    .sidebar a:hover { background-color: #575757; }
+    .content { margin-left: 200px; padding: 20px; }
+    table { border-collapse: collapse; width: 80%; margin-top: 10px; }
+    table, th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="dashboard.html" title="Return to dashboard">Dashboard</a>
+  <a href="grades.html" title="See your grades">View Grades</a>
+  <a href="profile.html" title="Update your profile">Update Profile</a>
+  <div class="notify-container">
+    <a href="notifications.html" class="notify-link">Notifications</a>
+    <div class="notify-hint">See recent notifications</div>
+    </div>
+</div>
+
+<div class="content">
+  <h1>Your Grades</h1>
+
+  <!-- Dropdown menu for courses -->
+  <label for="courseSelect"><strong>Select a course:</strong></label>
+  <select id="courseSelect" onchange="showSelectedCourse()">
+    <option value="">-- Choose a course --</option>
+    <option value="Math 101">Math 101</option>
+    <option value="History 202">History 202</option>
+    <option value="Computer Science 305">Computer Science 305</option>
+  </select>
+
+  <table id="gradesTable">
+    <tr><th>Course</th><th>Grade</th></tr>
+    <tr><td>Math 101</td><td>A</td></tr>
+    <tr><td>History 202</td><td>B+</td></tr>
+    <tr><td>Computer Science 305</td><td>A-</td></tr>
+  </table>
+
+
+  <p><strong>Viewing your grades is free and secure.</strong></p>
+</div>
+
+<script>
+function showSelectedCourse() {
+  const selectedCourse = document.getElementById('courseSelect').value;
+  const rows = document.querySelectorAll('#gradesTable tr');
+
+  // Show all rows if nothing is selected
+  if (!selectedCourse) {
+    rows.forEach(row => row.style.display = '');
+    return;
+  }
+
+  // Hide rows that don't match the selected course
+  rows.forEach((row, index) => {
+    if (index === 0) return; // skip header row
+    const courseCell = row.cells[0].innerText;
+    row.style.display = (courseCell === selectedCourse) ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

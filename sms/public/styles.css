@@ -1,0 +1,28 @@
+.notify-container {
+  position: relative;
+}
+
+.notify-link {
+  display: block;
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.notify-link:hover {
+  background-color: #575757;
+}
+
+/* This block stays hidden until hover */
+.notify-hint {
+  display: none;
+  background-color: #444;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* Show the hint block under the link on hover */
+.notify-container:hover .notify-hint {
+  display: block;
+}

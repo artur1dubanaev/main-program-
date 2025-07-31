@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Profile</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    .sidebar {
+      position: fixed; top: 0; left: 0;
+      width: 200px; height: 100%;
+      background-color: #333; padding-top: 20px;
+    }
+    .sidebar a {
+      display: block; color: white;
+      padding: 12px; text-decoration: none;
+    }
+    .sidebar a:hover { background-color: #575757; }
+    .content { margin-left: 200px; padding: 20px; }
+    button { margin-top: 10px; margin-right: 10px; }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="dashboard.html" title="Return to dashboard">Dashboard</a>
+  <a href="grades.html" title="See your grades">View Grades</a>
+  <a href="profile.html" title="Update your profile">Update Profile</a>
+  <div class="notify-container">
+    <a href="notifications.html" class="notify-link">Notifications</a>
+    <div class="notify-hint">See recent notifications</div>
+    </div>
+</div>
+
+<div class="content">
+  <h1>Update Profile</h1>
+
+ <form id="profileForm">
+  <label for="profilePic">Choose a new profile picture:</label><br><br>
+  <input type="file" id="profilePic" name="profilePic" accept="image/*"><br><br>
+
+  <!-- Preview area -->
+  <img id="preview" src="" alt="Preview" style="max-width: 200px; display:none; margin-top: 10px;">
+
+  <br><br>
+  <button type="submit">Save</button>
+  <button type="button" onclick="cancelChanges()">Cancel</button>
+</form>
+</div>
+
+<script>
+let pictureChanged = false;
+
+// Show a preview when a file is selected
+document.getElementById('profilePic').addEventListener('change', function(event) {
+  pictureChanged = true;
+  const file = event.target.files[0];
+  const preview = document.getElementById('preview');
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+    }
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = '';
+    preview.style.display = 'none';
+  }
+});
+
+function cancelChanges() {
+  if (pictureChanged) {
+    const confirmLeave = confirm(
+      "You've selected a new profile picture. Do you want to leave without saving?"
+    );
+    if (confirmLeave) {
+      window.location.href = 'dashboard.html';
+    }
+  } else {
+    window.location.href = 'dashboard.html';
+  }
+}
+</script>
+
+
+</body>
+</html>

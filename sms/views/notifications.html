@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notifications</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    .sidebar {
+      position: fixed; top: 0; left: 0;
+      width: 200px; height: 100%;
+      background-color: #333; padding-top: 20px;
+    }
+    .sidebar a {
+      display: block; color: white;
+      padding: 12px; text-decoration: none;
+    }
+    .sidebar a:hover { background-color: #575757; }
+    .content { margin-left: 200px; padding: 20px; }
+    ul { list-style-type: none; padding-left: 0; }
+    li {
+      background: #f2f2f2;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="dashboard.html" title="Return to dashboard">Dashboard</a>
+  <a href="grades.html" title="See your grades">View Grades</a>
+  <a href="profile.html" title="Update your profile">Update Profile</a>
+  <div class="notify-container">
+    <a href="notifications.html" class="notify-link">Notifications</a>
+    <div class="notify-hint">See recent notifications</div>
+</div>
+</div>
+
+<div class="content">
+  <h1>Notifications</h1>
+  <ul>
+    <li><strong>Instructor:</strong> Assignment 3 is due tomorrow.</li>
+    <li><strong>System:</strong> Your grades have been updated.</li>
+    <li><strong>Instructor:</strong> New course materials available for Math 101.</li>
+  </ul>
+</div>
+
+</body>
+</html>
